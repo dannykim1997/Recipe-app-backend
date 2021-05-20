@@ -10,16 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_18_235345) do
+ActiveRecord::Schema.define(version: 2021_05_19_202639) do
 
-  create_table "notes", force: :cascade do |t|
-    t.text "comment"
+  create_table "cookbooks", force: :cascade do |t|
     t.integer "user_id"
     t.integer "recipe_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["recipe_id"], name: "index_notes_on_recipe_id"
-    t.index ["user_id"], name: "index_notes_on_user_id"
+    t.index ["recipe_id"], name: "index_cookbooks_on_recipe_id"
+    t.index ["user_id"], name: "index_cookbooks_on_user_id"
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -29,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_05_18_235345) do
     t.text "instructions"
     t.string "ingredients"
     t.string "measurements"
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

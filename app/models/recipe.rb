@@ -1,4 +1,4 @@
 class Recipe < ApplicationRecord
-    has_many :notes
-    has_many :users, through: :notes
+    has_many :cookbooks
+    has_many :users, through: :cookbooks
 end

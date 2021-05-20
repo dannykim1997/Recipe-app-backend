@@ -5,8 +5,9 @@ class CreateRecipes < ActiveRecord::Migration[6.1]
       t.string :category
       t.string :origin
       t.text :instructions
-      t.string :ingredients, array: true
-      t.string :measurements, array: true
+      t.string :ingredients
+      t.string :measurements
+      t.string :image
       t.timestamps
     end
   end
