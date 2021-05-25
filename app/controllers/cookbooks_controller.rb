@@ -1,10 +1,10 @@
 class CookbooksController < ApplicationController
     before_action :find_cookbook, only: [:update, :destroy]
 
-    # def index
-    #     @cookbooks= Cookbook.all
-    #     render json: CookbookSerializer.new(@cookbooks), status: :accepted
-    # end
+    def index
+        @cookbooks= Cookbook.all
+        render json: CookbookSerializer.new(@cookbooks), status: :accepted
+    end
 
     def index 
         @cookbooks = current_user.cookbooks
