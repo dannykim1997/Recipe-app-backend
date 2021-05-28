@@ -6,10 +6,8 @@ class SessionsController < ApplicationController
         if @user && @user.authenticate(session_params[:password])
             token = encode_token({user_id: @user.id})
             render json: {user: UserSerializer.new(@user), jwt: token}, status: :accepted
-            # @jwt = encode_token({user_id: @user.id})
-            # render json: {user: UserSerializer.new(@user), jwt: @jwt}, status: :accepted
         else
-            render json: {message: "Invalid username or password"}, status: :unauthorized
+            render json: {message: "invalid username or password"}, status: :unauthorized
         end
     end
 

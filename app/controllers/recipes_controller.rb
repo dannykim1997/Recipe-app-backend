@@ -2,7 +2,6 @@ class RecipesController < ApplicationController
     before_action :find_recipe, only: [:update, :destroy]
 
     def index
-        # r = Recipe.fetch_from_api 
         @recipes = current_user.recipes
         render json: RecipeSerializer.new(@recipes), status: :accepted
     end
