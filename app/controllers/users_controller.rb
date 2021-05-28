@@ -4,9 +4,10 @@ class UsersController < ApplicationController
     def create 
         @user = User.create(user_params) 
         if @user.valid?
-            render json: {login: true}, status: :created
+            token = encode_token({user_id: @user.id})
+            render json: {user: UserSerializer.new(@user), jwt: token}, status: :accepted
         else
-            render json: {message: "failed to login"}, status: :not_acceptable
+            render json: {message: "failed to signup"}, status: :not_acceptable
         end
     end
 
