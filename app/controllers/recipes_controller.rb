@@ -6,6 +6,12 @@ class RecipesController < ApplicationController
         render json: RecipeSerializer.new(@recipes), status: :accepted
     end
 
+    def reverse
+        @recipes = current_user.recipes
+        @recipes.reverse()
+        render json: RecipeSerializer.new(@recipes), status: :accepted 
+    end
+
     def show
         @recipe = Recipe.find_by(id: params[:id])
         render json: RecipeSerializer.new(@recipe), status: :accepted
