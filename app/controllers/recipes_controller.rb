@@ -7,8 +7,7 @@ class RecipesController < ApplicationController
     end
 
     def reverse
-        @recipes = current_user.recipes
-        @recipes.reverse()
+        @recipes = current_user.recipes.reverse()
         render json: RecipeSerializer.new(@recipes), status: :accepted 
     end
 
